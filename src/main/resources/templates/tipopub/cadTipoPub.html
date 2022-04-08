@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Cadastre o Pub/Bar</title>
+
+<link rel="stylesheet" href="css/tipoPubCss/tipoPub.css">
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+            
+
+</head>
+<body>
+	<header th:replace="fragments/padrao :: cabecalho" ></header>
+	<main>
+	
+		<div class="container">
+		
+			<div class="box">
+			
+			
+			<form method="post" action="saveTipoPub" class="cadForm">
+			<h1>Cadastre o seu Pub conosco</h1>
+			<input type="hidden" name="id" th:value="${tpub?.id}">
+				<table>
+				
+				
+      
+   				 
+				
+				<tr>
+				<td><label>Tipo do Pub</label></td>
+				<td><input type="text"	name="nome" placeholder="Digete o nome" th:value="${tpub?.nome}"><td>
+				</tr>
+				
+				<tr>
+				<td><label>Descrição:</label> 
+				<td><input type="text" name="descricao" placeholder="Descreva o Pub" th:value="${tpub?.descricao}"></td>
+				</tr>
+				
+				<tr>
+				<td><label>Palavra Chave</label></td>
+				<td><input type="text" name="palavraChave" placeholder="Palavras chave para o restaurante" th:value="${tpub?.palavraChave}"></td>
+				</tr>
+				
+				<tr>
+				<td><label>Idade indicada</label>
+				<td><input type="text" name="idadeIndicada" th:value="${tpub?.idadeIndicada}"> </td>
+				</tr>
+				
+				<tr>
+				<td><input type="submit" value="Salvar"></td>
+				</tr>
+				
+				
+				</table>
+				
+				
+			</form>
+			
+		</div>
+	</div>
+	
+	</main>
+
+</body>
+</html>

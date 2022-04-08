@@ -1,0 +1,32 @@
+@charset "ISO-8859-1";
+
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+.pagination{
+margin-top: 31em;
+width: 10%;
+bottom: 40px;
+display: inline-block;
+margin-left:42.5%;
+background-color: #ffffff;
+color: #00e676;
+border-radius: 50px;
+z-index: 1000;
+}
+.nav-wrapper{
+	background-color: #7b2cbf;
+	margin:0;
+}
+.body-class{
+	background: #f1c0e8;
+}
+.page-footer{
+	position: inherit;
+}

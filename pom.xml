@@ -55,6 +55,23 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+		<dependency>
+    		<groupId>com.google.guava</groupId>
+    		<artifactId>guava</artifactId>
+    		<version>31.1-jre</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.google.firebase/firebase-admin -->
+	<dependency>
+    	<groupId>com.google.firebase</groupId>
+   		<artifactId>firebase-admin</artifactId>
+    	<version>8.1.0</version>
+	</dependency>
+
+
+		
 	</dependencies>
 
 	<build>

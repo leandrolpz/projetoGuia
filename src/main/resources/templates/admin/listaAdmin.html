@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Lista de Administrador</title>
+
+<link rel="stylesheet" href="../css/adminCss/admList.css">
+
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="css/materialize.min.css"
+	media="screen,projection" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	
+	
+
+</head>
+<body class="body-class">
+	<header th:replace="fragments/padrao :: cabecalho"></header>
+ 
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nome</th>
+				<th>Email</th>
+				<th>alterar</th>
+				<th>Excluir</th>
+			</tr>
+		</thead>
+
+		<tbody>
+
+			<tr th:each="adm:${admins}">
+				<td th:text="${adm.id}" />
+				<td th:text="${adm.nome}" />
+				<td th:text="${adm.email}" />
+				<td><a th:href="@{/alteradmin(id=${adm.id})}">  <i class="material-icons">border_color</i></a></td>
+				<td><a th:href="@{/deleteadmin(id=${adm.id})}"><i class="material-icons">delete_sweep</i></a></td>
+			</tr>
+			
+			
+		</tbody>
+
+
+
+	</table>
+
+	<ul class="pagination">
+		<li th:class="${pagAtual == 1 ? 'disabled' : 'waves-effect'}"><a
+			th:href="${pagAtual > 1 ? pagAtual - 1 : '#'}"><i
+				class="material-icons">chevron_left</i></a></li>
+		<li th:class="${pagAtual == p ? 'active purple' : 'waves-effect'}" th:each="p:${numPag}"><a th:href="${p}"><span
+				th:text="${p}"></span></a></li>
+
+		<li th:class="${pagAtual == totalPages ? 'disabled' : 'waves-effect'}"><a th:href="${pagAtual < totalPages ? pagAtual + 1 : '#'}"><i
+				class="material-icons">chevron_right</i></a></li>
+
+	</ul>
+	
+	<footer th:replace="fragments/padrao :: rodape"></footer>
+	    
+</body>
+</html>
+

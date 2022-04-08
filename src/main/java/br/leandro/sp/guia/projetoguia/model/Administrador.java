@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
+import br.leandro.sp.guia.projetoguia.util.HashUtil;
 import lombok.Data;
 
 // criando get e sets com lombok
@@ -27,4 +28,16 @@ public class Administrador {
 	private String email;
 	@NotEmpty
 	private String senha;
+	
+	
+	// método set que aplica o hash na senha
+	public void setSenha(String senha) {
+		this.senha = HashUtil.hash(senha);
+	}
+	
+	// metodo que "seta" o hash na senha
+	public void setSenhaComHash(String hash) {
+		this.senha = hash;
+	}
+
 }
