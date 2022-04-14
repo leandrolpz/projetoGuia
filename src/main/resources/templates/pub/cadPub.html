@@ -30,12 +30,12 @@
 	<div id="test-slider">
 	<form method="post" class="pubForm" action="savePub" enctype="multipart/form-data">
 			<h1>Cadastre o Pub </h1>
-			<input type="hidden" name="id">
+			<input type="hidden" name="id" th:value="${pub?.id}">
 				<table>
    				 		
 				<tr>
 				<td><label>Nome Pub:</label></td>
-				<td><input type="text"	name="nome" placeholder="Digete o nome" size="60" ><td>
+				<td><input type="text"	name="nome" placeholder="Digete o nome" size="60" th:value="${pub?.nome}"><td>
 				</tr>
 				
 				<tr>
@@ -48,102 +48,122 @@
 				
 				<tr>
 				<td><label>Descrição:</label> 
-				<td><input type="text" name="descricao" placeholder="Descreva o Pub" size="60"></td>
+				<td><input type="text" name="descricao" placeholder="Descreva o Pub" size="60" th:value="${pub?.descricao}"></td>
 				</tr>
 				
 				<tr>
 				<td><label>cep:</label></td>
-				<td><input type="text" name="cep" id="cep" placeholder="Informe o cep" size="60" ></td>
+				<td><input type="text" name="cep" id="cep" placeholder="Informe o cep" size="60" th:value="${pub?.cep}"></td>
 				</tr>
 				
 				<tr>
 				<td><label>Endereço:</label>
-				<td><input type="text" name="endereco" id="rua" placeholder="Informe endereço" size="60" readonly="readonly"> </td>
+				<td><input type="text" name="endereco" id="rua" placeholder="Informe endereço" size="60" readonly="readonly"
+				 th:value="${pub?.endereco}"> </td>
 				</tr>
 				
 				<tr>
 				<td><label>Numero do Endereço:</label>
-				<td><input type="text" name="numero" placeholder="Informe numero correspondente" size="60"> </td>
+				<td><input type="text" name="numero" placeholder="Informe numero correspondente" size="60" 
+				th:value="${pub?.numero}"> </td>
 				</tr>
 				
 				<tr>
 				<td><label>Complemento:</label>
-				<td><input type="text" name="complemento" placeholder="Complemento do endereço endereço" size="60" > </td>
+				<td><input type="text" name="complemento" placeholder="Complemento do endereço endereço" size="60" 
+				 th:value="${pub?.complemento}"> </td>
 				</tr>
 				
 				<tr>
 				<td><label>Bairro::</label>
-				<td><input type="text" name="bairro" id="bairro"placeholder="Informe o Bairro" size="60" readonly="readonly"> </td>
+				<td><input type="text" name="bairro" id="bairro"placeholder="Informe o Bairro" size="60" readonly="readonly"
+				th:value="${pub?.bairro}"> </td>
 				</tr>
 				
 				<tr>
 				<td><label>cidade:</label>
-				<td><input type="text" name="cidade" id="cidade"placeholder="Informe cidade" size="60" readonly="readonly"> </td>
+				<td><input type="text" name="cidade" id="cidade"placeholder="Informe cidade" size="60" readonly="readonly"
+				th:value="${pub?.cidade}"> </td>
 				</tr>
 				
 				<tr>
 				<td><label>Estado:</label>
-				<td><input type="text" name="estado" id="estado" placeholder="Informe o estado" readonly="readonly"> </td>
+				<td><input type="text" name="estado" id="estado" placeholder="Informe o estado" readonly="readonly"
+				th:value="${pub?.estado}"> </td>
 				</tr>
 				
 				<tr>
 				<td><label>Telefone:</label>
-				<td><input type="text" name="telefone" placeholder="digite o telefone"> </td>
+				<td><input type="text" name="telefone" placeholder="digite o telefone"
+				th:value="${pub?.telefone}"> </td>
 				</tr>
 				
 				<tr>
 				<td><label>Site:</label>
-				<td><input type="text" name="site" placeholder="Informe o endereço do site"> </td>
+				<td><input type="text" name="site" placeholder="Informe o endereço do site"
+				th:value="${pub?.site}"> </td>
 				</tr>
 				
 				<tr>
 				<td><label>Horário de Funcionamento:</label>
-				<td><input type="text" name="horario"> </td>
+				<td><input type="text" name="horario" th:value="${pub?.horario}"> </td>
 				</tr>
 				
 				<tr>
 				<td><label>Formas de Pagamento:</label>
-				<td><input type="text" name="formaPagamento"> </td>
+				<td><input type="text" name="formaPagamento" th:value="${pub?.formaPagamento}"> </td>
 				</tr>
 				
 				<tr>
 				<td><label>Atrações:</label>
-				<td><input type="text" name="atracoes"> </td>
+				<td><input type="text" name="atracoes" th:value="${pub?.atracoes}"> </td>
 				</tr>
 				
 				<tr>
 				<td class="ic-checkbox"><label><i class="material-icons">motorcycle</i></label>
-				<input type="checkbox" name="delivery"> </td>
+				<input type="checkbox" name="delivery" th:cheked="${pub?.delivery}"> </td>
 				</tr>
 				
 				<tr>
 				<td class="ic-checkbox"><label><i class="material-icons">accessible</i> </label>
-				<input type="checkbox" name="acessibilidade"> </td>
+				<input type="checkbox" name="acessibilidade" th:checked="${pub?.acessibilidade}"> </td>
 				</tr>
 				
 				<tr>
 				<td class="ic-checkbox"><label><i class="material-icons">local_parking</i></label>
-				<input type="checkbox" name="estacionamento"> </td>
+				<input type="checkbox" name="estacionamento" th:checked="${pub?.estacionamento}"> </td>
 				</tr>
 				
 				<tr>
 				  
 				
 				<td> <p class="range-field">
-     				 <input type="range" id="test5" min="0" max="5"  name="preco"/>
+     				 <input type="range" id="test5" min="0" max="5"  name="preco" th:value="${pub?.preco}"/>
    				 </p><td>
    				 </tr>
 				
 				 <tr>
 				<td><label>Fotos:</label>
-				<td><input type="file" name="fileFotos" multiple accept="image/*"></td>
+				<td><input type="file" name="fileFotos" multiple accept="image/*" ></td>
 				</tr> 
+				
+				<tr th:if="${pub?.fotos.length > 0}">
+					<td>Fotos cadastradas</td>
+					<td>
+						<ul>
+							<li th:each="foto : ${pub?.verFotos()}"> 
+							<a th:href="${foto}" target="blank."><img th:src="${foto}" width="50px;"></a>
+							
+							</li>
+						
+						</ul>
+					</td>
+				</tr>
 				
 				<tr>
 				<td><input type="submit" value="Salvar" class="salvar"></td>
 				</tr>
-				
-				
+
 				</table>
 				
 				

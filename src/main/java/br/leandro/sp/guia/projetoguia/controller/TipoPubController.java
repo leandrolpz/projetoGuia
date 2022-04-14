@@ -73,8 +73,8 @@ public class TipoPubController {
 	}
 	
 	// alteração do pub
-	@RequestMapping("alterpub")
-	public String alterPub(Long id, Model model) {
+	@RequestMapping("altertipopub")
+	public String alterTipoPub(Long id, Model model) {
 		TipoPub tPub = repository.findById(id).get();
 		model.addAttribute("tpub", tPub);
 		return "forward:cadtipopub";
