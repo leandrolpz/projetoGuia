@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+	<link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+   
+</head>
+<body>
+<header th:replace="fragments/padrao :: cabecalho"></header>
+<main>
+<div>
+    <form class="index">
+        <table>
+            <tr>
+                <td>Login</td>
+            </tr>
+            <tr>
+                <td><label>Usuario:</label></td>
+                <td><input type="text" name="email" placeholder="Escreva seu nome de Usuario" ></td>
+            </tr>
+           
+            <tr>
+                <td>Senha:</td>
+                <td><input type="password" name="senha"></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Login </button></td>
+            </tr>
+        </table>
+    
+    </form>
+</div>
+
+ </main>
+</body>
+</html>

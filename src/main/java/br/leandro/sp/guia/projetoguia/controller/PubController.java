@@ -48,7 +48,7 @@ public class PubController {
 	public String savePub(@Valid Pub pub, RedirectAttributes attr, @RequestParam("fileFotos") MultipartFile[] fileFotos) {	
 		try {
 			//string para armazenar as URLs
-			String fotos = "";
+			String fotos = pub.getFotos();
 			// percorre cada arquivo no vetor
 			for(MultipartFile arquivo : fileFotos){
 				// verifica se o arquivo existe
@@ -107,7 +107,13 @@ public class PubController {
 	
 	@RequestMapping("deletepub")
 	public String deletePub(Long id) {
-		repPub.deleteById(id);
+		Pub pub = repPub.findById(id).get();
+		if (pub.getFotos().length() > 0) {
+			for (String foto : pub.verFotos()) {
+				fireUtil.delete(foto);
+			}
+		}
+		repPub.delete(pub);
 		return "redirect:publist/1";
 	}
 	

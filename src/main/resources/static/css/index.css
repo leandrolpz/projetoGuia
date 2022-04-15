@@ -1,0 +1,35 @@
+@charset "ISO-8859-1";
+*{
+    margin: 0;
+    padding: 0;
+ }
+body{
+	  background: url(../../imgs/cadTPubImg.jpg) no-repeat center center;
+}
+ main
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+  	
+    background-size: cover;
+
+}
+ 
+
+ .index {
+
+    width: 50vh;
+    margin-left: 33vh !important;
+    margin-top: 30vh;
+    padding: 40px;
+    border-radius: 8px;
+    background-color: white;
+    font-family: 'system-ui';
+    font-size: 20px;
+    box-shadow:18px 20px 10px rgb(0 0 0 / 30%);
+    align-items: center;
+    display: flex !important;
+}

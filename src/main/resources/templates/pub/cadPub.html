@@ -145,15 +145,17 @@
 				 <tr>
 				<td><label>Fotos:</label>
 				<td><input type="file" name="fileFotos" multiple accept="image/*" ></td>
+				<td><input type="hidden" th:value="${pub?.fotos}" name="fotos"> </td>
 				</tr> 
 				
-				<tr th:if="${pub?.fotos.length > 0}">
+				<tr th:if="${pub?.fotos?.length > 0}">
 					<td>Fotos cadastradas</td>
 					<td>
 						<ul>
-							<li th:each="foto : ${pub?.verFotos()}"> 
+							<li th:each="foto, f : ${pub?.verFotos()}"> 
 							<a th:href="${foto}" target="blank."><img th:src="${foto}" width="50px;"></a>
-							
+							<a th:href="@{/excluirFotos(id=${pub?.id},numFoto=${f.index})}">
+							<i class="material-icons">delete_forever</i></a>
 							</li>
 						
 						</ul>

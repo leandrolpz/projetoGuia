@@ -3,6 +3,7 @@ package br.leandro.sp.guia.projetoguia.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -114,6 +115,21 @@ public class AdminController {
 	public String deleteAdmin(Long id) {
 		repository.deleteById(id);
 		return "redirect:listAdmin/1";
+	}
+	
+	@RequestMapping("login")
+	public String login(Administrador admLog, RedirectAttributes attr, HttpSession session) {
+		// busca o Administrador no banco
+		Administrador adm = repository.findByEmailAndSenha(admLog.getEmail(), admLog.getSenha());
+		// verifica se existe
+		if(adm == null) {
+			attr.addFlashAttribute("ERRO", "Login e/ou Senha invalida");
+			return "redirect:/";
+		}else {
+			// salva o adm na sessão
+			session.setAttribute("UsuarioLogado", adm);
+			return "redirect:/publist/1";
+		}
 	}
 
 }
