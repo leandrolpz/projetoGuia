@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.leandro.sp.guia.projetoguia.annotation.Publico;
 import br.leandro.sp.guia.projetoguia.model.Administrador;
 import br.leandro.sp.guia.projetoguia.repository.AdminRepository;
 import br.leandro.sp.guia.projetoguia.util.HashUtil;
@@ -116,20 +117,29 @@ public class AdminController {
 		repository.deleteById(id);
 		return "redirect:listAdmin/1";
 	}
-	
+
+	@Publico
 	@RequestMapping("login")
 	public String login(Administrador admLog, RedirectAttributes attr, HttpSession session) {
 		// busca o Administrador no banco
 		Administrador adm = repository.findByEmailAndSenha(admLog.getEmail(), admLog.getSenha());
 		// verifica se existe
-		if(adm == null) {
+		if (adm == null) {
 			attr.addFlashAttribute("ERRO", "Login e/ou Senha invalida");
 			return "redirect:/";
-		}else {
+		} else {
 			// salva o adm na sessão
-			session.setAttribute("UsuarioLogado", adm);
-			return "redirect:/publist/1";
+			session.setAttribute("usuarioLogado", adm);
+			return "redirect:publist/1";
 		}
+	}
+
+	@RequestMapping("logout")
+	public String logout(HttpSession session) {
+		// invalida sessão
+		session.invalidate();
+		// volta para pagina inicial
+		return "redirect:/";
 	}
 
 }
